@@ -7,10 +7,13 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "npm run content:validate && tsc --noEmit && vite build",
+    "check": "npm run lint && npm run build",
+    "content:validate": "node scripts/validate-content.mjs",
     "preview": "vite preview",
-    "test": "npm run build",
-    "lint": "eslint src"
+    "publications:sync": "node scripts/sync-publications.mjs",
+    "test": "npm run check",
+    "lint": "eslint src scripts"
   },
   "dependencies": {
     "react": "19.2.6",

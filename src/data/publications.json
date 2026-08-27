@@ -1,0 +1,163 @@
+{
+  "source": {
+    "provider": "Google Scholar",
+    "profileId": "IcP_P_sAAAAJ",
+    "profileUrl": "https://scholar.google.com/citations?user=IcP_P_sAAAAJ&hl=en&pagesize=100",
+    "updatedAt": "2026-08-27T19:20:11.971Z"
+  },
+  "publications": [
+    {
+      "id": "WF5omc3nYNoC",
+      "title": "Quenched disorder in the triangular lattice antiferromagnet YbZn2GaO5",
+      "authors": "L Zhao, T Chen, MB Stone, Q Zhang, CL Sarkis, SM Koohpayeh, et al.",
+      "venue": "Physical Review B 113 (1), 014437 ",
+      "year": 2026,
+      "citations": 2,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:WF5omc3nYNoC",
+      "doi": "10.1103/xn2m-1jb5",
+      "journalUrl": "https://journals.aps.org/prb/abstract/10.1103/xn2m-1jb5"
+    },
+    {
+      "id": "ufrVoPGSRksC",
+      "title": "3D-printable oil-in-liquid metal foam emulsion",
+      "authors": "Z Li, L Zhao, C Kakogiannis, TP Weihs, J Mueller",
+      "venue": "Matter 8 (12) ",
+      "year": 2025,
+      "citations": 5,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:ufrVoPGSRksC",
+      "doi": "10.1016/j.matt.2025.102420",
+      "journalUrl": "https://doi.org/10.1016/j.matt.2025.102420"
+    },
+    {
+      "id": "eQOLeE2rZwMC",
+      "title": "Developing new analysis tools for near surface radio-based neutrino detectors",
+      "authors": "A Anker, P Baldi, SW Barwick, J Beise, DZ Besson, P Chen, G Gaswint, et al.",
+      "venue": "Journal of Cosmology and Astroparticle Physics 2023 (10), 060 ",
+      "year": 2023,
+      "citations": 3,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:eQOLeE2rZwMC",
+      "doi": "10.1088/1475-7516/2023/10/060",
+      "journalUrl": "https://doi.org/10.1088/1475-7516/2023/10/060"
+    },
+    {
+      "id": "LkGwnXOMwfcC",
+      "title": "Refinement of Antenna Response and Ice Properties at Radio Wavelengths",
+      "authors": "A Anker, SA Kleinfelder, L Zhao, P Chen, SW Barwick, JA Aguilar, et al.",
+      "venue": "Journal of Cosmology and Astroparticle Physics 2023 (10), 2 ",
+      "year": 2023,
+      "citations": 0,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:LkGwnXOMwfcC"
+    },
+    {
+      "id": "qjMakFHDy7sC",
+      "title": "Triboelectric backgrounds to radio-based polar ultra-high energy neutrino (UHEN) experiments",
+      "authors": "JA Aguilar, A Anker, P Allison, S Archambault, P Baldi, SW Barwick, et al.",
+      "venue": "Astroparticle physics 145, 102790 ",
+      "year": 2023,
+      "citations": 18,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:qjMakFHDy7sC",
+      "doi": "10.1016/j.astropartphys.2022.102790",
+      "journalUrl": "https://doi.org/10.1016/j.astropartphys.2022.102790"
+    },
+    {
+      "id": "9yKSN-GCB0IC",
+      "title": "A novel trigger based on neural networks for radio neutrino detectors",
+      "authors": "A Anker, MP Paul, P Baldi, SW Barwick, J Beise, H Bernhoff, DZ Besson, et al.",
+      "venue": "Proceedings of 37th International Cosmic Ray Conference — PoS(ICRC2021)",
+      "year": 2022,
+      "citations": 6,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:9yKSN-GCB0IC",
+      "doi": "10.22323/1.395.1074",
+      "journalUrl": "https://doi.org/10.22323/1.395.1074"
+    },
+    {
+      "id": "d1gkVwhDpl0C",
+      "title": "Capabilities of ARIANNA: Neutrino pointing resolution and implications for future ultra-high energy neutrino astronomy",
+      "authors": "SW Barwick, G Gaswint, A Anker, P Baldi, J Beise, H Bernhoff, DZ Besson, et al.",
+      "venue": "Proceedings of 37th International Cosmic Ray Conference — PoS(ICRC2021)",
+      "year": 2022,
+      "citations": 22,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:d1gkVwhDpl0C",
+      "doi": "10.22323/1.395.1151",
+      "journalUrl": "https://doi.org/10.22323/1.395.1151"
+    },
+    {
+      "id": "Y0pCki6q_DkC",
+      "title": "Development of an in-situ calibration device of firn properties for Askaryan neutrino detectors",
+      "authors": "J Beise, C Glaser, A Anker, P Baldi, SW Barwick, H Bernhoff, DZ Besson, et al.",
+      "venue": "Proceedings of 37th International Cosmic Ray Conference — PoS(ICRC2021)",
+      "year": 2022,
+      "citations": 0,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:Y0pCki6q_DkC",
+      "doi": "10.22323/1.395.1069",
+      "journalUrl": "https://doi.org/10.22323/1.395.1069"
+    },
+    {
+      "id": "u-x6o8ySG0sC",
+      "title": "Improving sensitivity of the ARIANNA detector by rejecting thermal noise with deep learning",
+      "authors": "Arianna Collaboration, A Anker, P Baldi, SW Barwick, J Beise, DZ Besson, et al.",
+      "venue": "Journal of Instrumentation 17 (03), P03007 ",
+      "year": 2022,
+      "citations": 20,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:u-x6o8ySG0sC",
+      "doi": "10.1088/1748-0221/17/03/p03007",
+      "journalUrl": "https://doi.org/10.1088/1748-0221/17/03/p03007"
+    },
+    {
+      "id": "W7OEmFMy1HYC",
+      "title": "Measuring the polarization reconstruction resolution of the ARIANNA neutrino detector with cosmic rays",
+      "authors": "Arianna Collaboration, A Anker, P Baldi, SW Barwick, J Beise, DZ Besson, et al.",
+      "venue": "Journal of Cosmology and Astroparticle Physics 2022 (04), 022 ",
+      "year": 2022,
+      "citations": 23,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:W7OEmFMy1HYC",
+      "doi": "10.1088/1475-7516/2022/04/022",
+      "journalUrl": "https://doi.org/10.1088/1475-7516/2022/04/022",
+      "summary": "A measurement-led study of radio-pulse polarization reconstruction, validating detector performance against simulation using cosmic-ray events."
+    },
+    {
+      "id": "2osOgNQ5qMEC",
+      "title": "Polarization Reconstruction of Cosmic Rays with the ARIANNA Neutrino Radio Detector",
+      "authors": "L Zhao, A Anker, P Baldi, SW Barwick, J Beise, H Bernhoff, DZ Besson, et al.",
+      "venue": "Proceedings of 37th International Cosmic Ray Conference — PoS(ICRC2021)",
+      "year": 2022,
+      "citations": 3,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:2osOgNQ5qMEC",
+      "doi": "10.22323/1.395.1156",
+      "journalUrl": "https://doi.org/10.22323/1.395.1156"
+    },
+    {
+      "id": "u5HHmVD_uO8C",
+      "title": "Science Case and Detector Concept for the ARIANNA High Energy Neutrino Telescope at Moore’s Bay, Antarctica",
+      "authors": "SW Barwick, A Anker, P Baldi, J Beise, H Bernhoff, DZ Besson, et al.",
+      "venue": "Proceedings of 37th International Cosmic Ray Conference — PoS(ICRC2021)",
+      "year": 2022,
+      "citations": 0,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:u5HHmVD_uO8C",
+      "doi": "10.22323/1.395.1190",
+      "journalUrl": "https://doi.org/10.22323/1.395.1190"
+    },
+    {
+      "id": "IjCSPb-OGe4C",
+      "title": "TAROGE-M: radio antenna array on antarctic high mountain for detecting near-horizontal ultra-high energy air showers",
+      "authors": "SH Wang, J Nam, P Chen, Y Chen, T Choi, Y Ham, SY Hsu, JJ Huang, et al.",
+      "venue": "Journal of Cosmology and Astroparticle Physics 2022 (11), 022 ",
+      "year": 2022,
+      "citations": 24,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:IjCSPb-OGe4C",
+      "doi": "10.1088/1475-7516/2022/11/022",
+      "journalUrl": "https://doi.org/10.1088/1475-7516/2022/11/022"
+    },
+    {
+      "id": "zYLM7Y9cAGgC",
+      "title": "TAROGE-M: Radio Observatory on Antarctic High Mountain for Detecting Near-Horizon Ultra-High Energy Air Showers",
+      "authors": "SH Wang, P Chen, Y Chen, JJ Huang, MHA Huang, CY Kuo, CH Leung, et al.",
+      "venue": "37th International Cosmic Ray Conference, 1173 ",
+      "year": 2022,
+      "citations": 4,
+      "scholarUrl": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=IcP_P_sAAAAJ&pagesize=100&citation_for_view=IcP_P_sAAAAJ:zYLM7Y9cAGgC",
+      "doi": "10.22323/1.395.1173",
+      "journalUrl": "https://doi.org/10.22323/1.395.1173"
+    }
+  ]
+}

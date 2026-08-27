@@ -1,0 +1,58 @@
+{
+  "_instructions": "Copy the template into the talks array for each talk. Use an ISO date so entries sort newest first. Leave optional URLs empty when unavailable.",
+  "_template": {
+    "id": "unique-talk-slug",
+    "title": "Presentation title",
+    "event": "Conference, seminar, or host institution",
+    "location": "City, State/Country or Virtual",
+    "date": "YYYY-MM-DD",
+    "type": "Invited talk, contributed talk, seminar, or poster",
+    "url": "https://example.com/event",
+    "slidesUrl": "https://example.com/slides"
+  },
+  "talks": [{
+    "id": "2026-aps-march-meeting-cupzn",
+    "title": "Quasiparticle Interactions in the Spin-1/2 Heisenberg Spin Chain CuPzN",
+    "event": "APS Global Physics Summit 2026",
+    "location": "Denver, CO, USA",
+    "date": "2026-03-15",
+    "type": "Contributed talk"
+  },
+  {
+    "id": "2021-icrc",
+    "title": "Polarization Reconstruction of Cosmic Rays with the ARIANNA Neutrino Radio Detector",
+    "event": "37th International Cosmic Ray Conference",
+    "location": "Berlin, Germany",
+    "date": "2021-07-21",
+    "type": "Contributed talk",
+    "url": "https://indico.desy.de/event/27991/"
+  },
+  {
+    "id": "2022-neutrino-backgrounds",
+    "title": "Novel Background Rejection Techniques in a Search for Ultra-high Energy Neutrinos Using an ARIANNA Detector Station at the South Pole",
+    "event": "Neutrino 2022",
+    "location": "Seoul, Korea",
+    "date": "2022-05-30",
+    "type": "Poster",
+    "url": "https://neutrino2022.org/"
+  },
+  {
+    "id": "2022-neutrino-polarization",
+    "title": "Measuring the Polarization Reconstruction Resolution of the ARIANNA Neutrino Detector with Cosmic Rays",
+    "event": "Neutrino 2022",
+    "location": "Seoul, Korea",
+    "date": "2022-05-30",
+    "type": "Poster",
+    "url": "https://neutrino2022.org/"
+  },
+  {
+    "id": "2025-nist",
+    "title": "Quenched Disorder in the Quantum Spin Liquid Candidate YbZn2GaO5",
+    "event": "2025 CHRNS Summer School on Neutron Scattering",
+    "location": "Gaithersburg, MD, USA",
+    "date": "2025-07-28",
+    "type": "Poster",
+    "url": "https://www.nist.gov/ncnr/2025-chrns-summer-school-neutron-scattering"
+  }
+]
+}

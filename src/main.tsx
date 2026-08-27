@@ -1,5 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import publicationData from "./data/publications.json";
+import talkData from "./data/talks.json";
 import "./styles.css";
 
 const externalLinkProps = {
@@ -7,238 +9,408 @@ const externalLinkProps = {
   rel: "noreferrer",
 } as const;
 
+type PageId = "home" | "research" | "publications";
+
+type Publication = {
+  id: string;
+  title: string;
+  authors: string;
+  venue: string;
+  year: number;
+  citations: number;
+  scholarUrl: string;
+  journalUrl?: string;
+};
+
+const publications = publicationData.publications as Publication[];
+
+type Talk = {
+  id: string;
+  title: string;
+  event: string;
+  location?: string;
+  date: string;
+  type?: string;
+  url?: string;
+  slidesUrl?: string;
+};
+
+const talks = [...(talkData.talks as Talk[])]
+  .sort((left, right) => right.date.localeCompare(left.date));
+
 function Arrow() {
   return <span aria-hidden="true">↗</span>;
 }
 
-function App() {
+function Header({ currentPage }: { currentPage: PageId }) {
+  return (
+    <header className="site-header">
+      <a className="wordmark" href="/" aria-label="Leshan Zhao, home">
+        Leshan Zhao
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/#about">About</a>
+        <a href="/research/" aria-current={currentPage === "research" ? "page" : undefined}>
+          Research
+        </a>
+        <a href="/publications/" aria-current={currentPage === "publications" ? "page" : undefined}>
+          Publications
+        </a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+  );
+}
+
+function ResearchCards() {
+  const projects: Array<{
+    id: string;
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+  }> = [
+    {
+      id: "disorder",
+      title: "Disorder in frustrated quantum magnets",
+      description: "Resolving how structural site mixing and heterogeneous local environments mimic many-body effects in quantum magnets.",
+      image: "/research/disorder.png",
+      imageAlt: "Research figure illustrating disorder in frustrated quantum magnets",
+    },
+    {
+      id: "spectroscopy",
+      title: "Emergent phases and collective excitations",
+      description: "Using momentum- and energy-resolved spectroscopy to connect collective excitations with microscopic interactions.",
+      image: "/research/spectroscopy.png",
+      imageAlt: "Research figure illustrating emergent phases and collective excitations"
+    },
+    {
+      id: "inverse-problems",
+      title: "Machine learning for inverse problems",
+      description: "Building simulation and machine-learning workflows that accelerate the extraction of microscopic physics from complex measurements.",
+      image: "/research/machine-learning.png",
+      imageAlt: "Research figure illustrating machine learning for inverse problems"
+    },
+  ];
+
   return (
     <>
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Leshan Zhao, home">
-          LZ<span className="wordmark-dot">.</span>
-        </a>
-        <nav aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-
-      <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="eyebrow">Experimental condensed matter physics</p>
-            <h1 id="hero-title">
-              Leshan
-              <br />
-              Zhao<span className="accent">.</span>
-            </h1>
-            <p className="hero-lede">
-              I study how disorder, geometry, and interactions shape quantum
-              materials—using neutron scattering, computation, and physically
-              grounded data analysis.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-dark" href="#research">
-                Explore research <span aria-hidden="true">↓</span>
-              </a>
-              <a className="button button-line" href="mailto:lzhao53@jhu.edu">
-                Get in touch <Arrow />
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-visual" aria-label="Abstract neutron scattering motif">
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <div className="orbit orbit-three" />
-            <div className="beam-line" />
-            <div className="data-point point-one" />
-            <div className="data-point point-two" />
-            <div className="data-point point-three" />
-            <p className="visual-label">S(Q, ω)</p>
-            <p className="visual-caption">reciprocal space / energy transfer</p>
-          </div>
-        </section>
-
-        <section className="marquee" aria-label="Research areas">
-          <span>Quantum magnetism</span>
-          <span aria-hidden="true">✦</span>
-          <span>Neutron spectroscopy</span>
-          <span aria-hidden="true">✦</span>
-          <span>Inverse problems</span>
-          <span aria-hidden="true">✦</span>
-          <span>Scientific computing</span>
-        </section>
-
-        <section className="section about" id="about" aria-labelledby="about-heading">
-          <div className="section-kicker">01 / About</div>
-          <div className="about-copy">
-            <h2 id="about-heading">
-              Looking for the physics hidden inside complex data.
-            </h2>
-            <div className="prose-columns">
-              <p>
-                I am an experimental physicist working at the intersection of
-                quantum materials and data-intensive measurement. My current
-                research at Johns Hopkins uses inelastic neutron scattering to
-                investigate frustrated magnets, crystal-field excitations, and
-                the microscopic consequences of structural disorder.
-              </p>
-              <p>
-                My broader interests include reproducible simulation pipelines,
-                machine learning for inverse problems, and analysis tools that
-                connect measured spectra to interpretable physical models. I
-                previously worked with the ARIANNA collaboration on radio
-                detection and reconstruction for ultra-high-energy particles.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="section research" id="research" aria-labelledby="research-heading">
-          <div className="section-kicker light">02 / Research</div>
-          <div className="research-content">
-            <div className="section-heading-row">
-              <h2 id="research-heading">Questions I work on</h2>
-              <p>
-                Experiments, models, and computation designed to keep physical
-                interpretation in view.
-              </p>
-            </div>
-            <div className="research-grid">
-              <article className="research-card featured-card">
-                <span className="card-number">R.01</span>
-                <div>
-                  <p className="card-tag">Quantum materials</p>
-                  <h3>Disorder in frustrated magnets</h3>
-                  <p>
-                    Resolving how site mixing and heterogeneous local
-                    environments reshape crystal-field spectra and low-energy
-                    magnetic behavior.
-                  </p>
-                </div>
-              </article>
-              <article className="research-card">
-                <span className="card-number">R.02</span>
-                <div>
-                  <p className="card-tag">Neutron scattering</p>
-                  <h3>Spectroscopy as a microscopic probe</h3>
-                  <p>
-                    Using momentum- and energy-resolved measurements to connect
-                    collective excitations with Hamiltonians and local symmetry.
-                  </p>
-                </div>
-              </article>
-              <article className="research-card">
-                <span className="card-number">R.03</span>
-                <div>
-                  <p className="card-tag">Scientific computing</p>
-                  <h3>Interpretable inverse problems</h3>
-                  <p>
-                    Building reproducible simulation and machine-learning
-                    workflows that surface uncertainty, degeneracy, and
-                    identifiability.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="section publication-section" id="publications" aria-labelledby="publications-heading">
-          <div className="section-kicker">03 / Selected work</div>
-          <div className="publication-content">
-            <h2 id="publications-heading">Publications</h2>
-            <article className="publication featured-publication">
-              <div className="publication-year">2026</div>
-              <div className="publication-copy">
-                <p className="publication-label">Featured paper · Physical Review B</p>
-                <h3>
-                  Quenched disorder in the triangular lattice antiferromagnet
-                  YbZn<sub>2</sub>GaO<sub>5</sub>
-                </h3>
-                <p className="authors">
-                  <strong>L. Zhao</strong>, T. Chen, M. B. Stone, Q. Zhang,
-                  C. L. Sarkis, S. M. Koohpayeh, and C. L. Broholm
-                </p>
-                <p className="publication-summary">
-                  Inelastic neutron scattering, diffraction, point-charge
-                  modeling, and first-principles calculations reveal how Zn/Ga
-                  site mixing broadens crystal-field excitations and influences
-                  the material&apos;s unusual magnetism.
-                </p>
-                <div className="publication-links">
-                  <a href="https://journals.aps.org/prb/abstract/10.1103/xn2m-1jb5" {...externalLinkProps}>
-                    Journal <Arrow />
-                  </a>
-                  <a href="https://arxiv.org/abs/2507.12592" {...externalLinkProps}>
-                    arXiv <Arrow />
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            <article className="publication">
-              <div className="publication-year">2022</div>
-              <div className="publication-copy">
-                <p className="publication-label">JCAP · ARIANNA Collaboration</p>
-                <h3>
-                  Measuring the polarization reconstruction resolution of the
-                  ARIANNA neutrino detector with cosmic rays
-                </h3>
-                <p className="publication-summary">
-                  A measurement-led study of radio-pulse polarization
-                  reconstruction, validating detector performance against
-                  simulation using cosmic-ray events.
-                </p>
-                <a className="inline-link" href="https://arxiv.org/abs/2112.01501" {...externalLinkProps}>
-                  Read paper <Arrow />
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section className="photo-break" aria-label="Leshan Zhao presenting research">
-          <div className="photo-frame">
+      {projects.map((project, index) => (
+        <article className={`project-card surface-card${index === 1 ? " project-card-reverse" : ""}`} key={project.id}>
+          <div className="project-figure">
             <img
-              src="/leshan-zhao-presenting.jpg"
-              alt="Leshan Zhao presenting a poster on quenched disorder in a quantum spin liquid candidate"
+              src={project.image}
+              alt={project.imageAlt}
+              loading="lazy"
+              decoding="async"
             />
           </div>
-          <div className="photo-note">
-            <span>Field notes / 2025</span>
-            <p>
-              Presenting at the CHRNS Summer School on Neutron Spectroscopy.
-              Photograph by Yiming Qiu, NCNR / NIST.
-            </p>
+          <div className="project-copy">
+            <div className="project-meta">
+              <span>R.{String(index + 1).padStart(2, "0")}</span>
+            </div>
+            <h2>{project.title}</h2>
+            <p>{project.description}</p>
           </div>
-        </section>
+        </article>
+      ))}
+    </>
+  );
+}
 
-        <section className="contact" id="contact" aria-labelledby="contact-heading">
-          <p className="eyebrow light">Let&apos;s connect</p>
-          <h2 id="contact-heading">Research is a conversation.</h2>
+function PublicationList() {
+  return (
+    <ol className="publication-list">
+      {publications.map((publication, index) => (
+        <li className="publication" key={publication.id}>
+          <div className="publication-year">{publication.year}</div>
+          <div className="publication-copy">
+            <h3>
+              <span className="publication-number" aria-hidden="true">{index + 1}.</span>
+              <span>{publication.title}</span>
+            </h3>
+            <p className="publication-citation">
+              {publication.authors}{publication.venue ? `, ${publication.venue}` : ""}
+            </p>
+            <div className="publication-links">
+              {publication.journalUrl && (
+                <a href={publication.journalUrl} {...externalLinkProps}>
+                  Journal <Arrow />
+                </a>
+              )}
+              <a href={publication.scholarUrl} {...externalLinkProps}>
+                Google Scholar <Arrow />
+              </a>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function TalksList() {
+  if (talks.length === 0) {
+    return (
+      <p className="talks-empty">
+        Talks and presentations will be added here.
+      </p>
+    );
+  }
+
+  return (
+    <ol className="publication-list">
+      {talks.map((talk, index) => {
+        const year = /^\d{4}/.test(talk.date) ? talk.date.slice(0, 4) : "";
+        const details = [talk.type, talk.event, talk.location].filter(Boolean).join(" · ");
+
+        return (
+          <li className="publication talk" key={talk.id}>
+            <div className="publication-year">{year}</div>
+            <div className="publication-copy">
+              <h3>
+                <span className="publication-number" aria-hidden="true">{index + 1}.</span>
+                <span>{talk.title}</span>
+              </h3>
+              <p className="publication-citation">{details}</p>
+              {(talk.url || talk.slidesUrl) && (
+                <div className="publication-links">
+                  {talk.url && (
+                    <a href={talk.url} {...externalLinkProps}>Event <Arrow /></a>
+                  )}
+                  {talk.slidesUrl && (
+                    <a href={talk.slidesUrl} {...externalLinkProps}>Slides <Arrow /></a>
+                  )}
+                </div>
+              )}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section className="contact surface-card" id="contact" aria-labelledby="contact-heading">
+      <div className="contact-layout">
+        <div className="contact-details">
+          <p className="eyebrow light" id="contact-heading">Contact</p>
           <p className="contact-lede">
-            I&apos;m always interested in thoughtful discussions about quantum
-            materials, neutron scattering, scientific software, and physics-aware
-            machine learning.
+            <a href="mailto:lzhao53@jhu.edu">lzhao53@jhu.edu</a>
           </p>
+          <address className="contact-address">
+            Johns Hopkins University<br />
+            Physics and Astronomy<br />
+            3701 San Martin Dr<br />
+            Baltimore, MD 21218, USA
+          </address>
+        </div>
+
+        <div className="contact-social">
           <div className="contact-links">
-            <a href="mailto:lzhao53@jhu.edu">Email <Arrow /></a>
+            <a href="https://scholar.google.com/citations?user=IcP_P_sAAAAJ&hl=en" {...externalLinkProps}>Google Scholar <Arrow /></a>
             <a href="https://github.com/leshanz" {...externalLinkProps}>GitHub <Arrow /></a>
             <a href="https://www.linkedin.com/in/leshanzhao" {...externalLinkProps}>LinkedIn <Arrow /></a>
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-      <footer>
-        <span>© {new Date().getFullYear()} Leshan Zhao</span>
-        <span>Physics, computation, and careful questions.</span>
-        <a href="#top">Back to top ↑</a>
-      </footer>
+function HomePage() {
+  return (
+    <main id="top">
+      <section className="hero surface-card" aria-labelledby="hero-title">
+        <div className="hero-portrait">
+          <img src="/leshan-zhao-head.jpg" alt="Leshan Zhao headshot" />
+        </div>
+        <div className="hero-copy">
+          <p className="eyebrow">Condensed matter physics</p>
+          <h1 id="hero-title">Leshan Zhao</h1>
+          <p className="hero-lede">
+            Experimental condensed matter physicist studying quantum magnetic
+            materials through precision measurements, neutron scattering, and data-intensive analysis.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-rust" href="/research/">
+              View research <Arrow />
+            </a>
+            <a className="button button-line" href="#contact">
+              Get in touch <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="marquee surface-card" aria-label="Research areas">
+        <span aria-hidden="true">✦</span>
+        <span>Quantum magnetism</span><span aria-hidden="true">✦</span>
+        <span>Neutron scattering</span><span aria-hidden="true">✦</span>
+        <span>Inverse problems</span><span aria-hidden="true">✦</span>
+        <span>Scientific computing</span><span aria-hidden="true">✦</span>
+      </section>
+
+      <section className="section about surface-card" id="about" aria-labelledby="about-heading">
+        <div className="about-copy">
+          <h2 id="about-heading">About</h2>
+          <h3 className="about-headline">
+            Extracting quantum physics from complex experiments
+          </h3>
+          <p className="about-intro">
+            I am a Ph.D. candidate at Johns Hopkins University in the department of Physics and Astronomy working with professor <a href="https://physics-astronomy.jhu.edu/directory/collin-l-broholm/">Collin Broholm</a>, with a focus on frustrated quantum magnetism and neutron scattering. I received my B.S. in Physics from the University of California, Irvine, where I worked with professor <a href="https://ps.uci.edu/fprofile/steven-w-barwick/">Steven Barwick</a> on the <a href="https://arianna.ps.uci.edu/">ARIANNA collaboration</a> for radio detection of ultra-high-energy neutrinos and cosmic rays.
+            </p>
+            <p className="about-intro">
+            I am an experimental physicist working at the intersection of
+            quantum materials and data-intensive measurement. My current
+            research at Johns Hopkins uses cryogenic precision measurements and neutron scattering to
+            investigate frustrated magnets, collective excitations, and novel phases of matter due to competing interactions. My broader
+            interests include data-intensive analysis such as machine
+            learning for inverse problems and analysis tools that connect
+            measurements to interpretable physical models. My previous
+            work with the ARIANNA collaboration involved radio detection and
+            reconstruction for ultra-high-energy cosmic particles.
+          </p>
+
+        </div>
+      </section>
+
+      <section className="section about-experience surface-card" aria-labelledby="experience-heading">
+        <div className="experience-copy">
+            <h3 id="experience-heading">Experience</h3>
+
+            <article className="experience-item">
+              <div className="experience-meta">
+                <p className="experience-time">Aug 2022 — Present</p>
+                <p className="experience-field">Quantum materials</p>
+              </div>
+              <div className="experience-role">
+                <h4>Johns Hopkins University</h4>
+                <p>Ph.D. candidate</p>
+              </div>
+              <ul className="experience-points">
+                <li>
+                  Frustrated quantum magnets, collective excitations, and
+                  novel phases of matter due to competing interactions.
+                </li>
+                <li>
+                  Neutron scattering, physical modeling,
+                  and machine-learning-enabled analysis.
+                </li>
+              </ul>
+            </article>
+
+            <article className="experience-item">
+              <div className="experience-meta">
+                <p className="experience-time">Jun 2026 — Aug 2026</p>
+                <p className="experience-field">Quantum Computing</p>
+              </div>
+              <div className="experience-role">
+                <h4>Nokia Bell Labs</h4>
+                <p>Advanced Sensing & Quantum Devices Intern</p>
+              </div>
+              <ul className="experience-points">
+                <li>GaAs/AlGaAs quantum well and fractional quantum Hall devices</li>
+                <li>Cryogenic measurements of topological qubits</li>
+              </ul>
+            </article>
+
+            <article className="experience-item">
+              <div className="experience-meta">
+                <p className="experience-time">Feb 2020 — Aug 2022</p>
+                <p className="experience-field">Astroparticle physics</p>
+              </div>
+              <div className="experience-role">
+                <h4>UC Irvine · ARIANNA Collaboration</h4>
+                <p>Undergraduate researcher</p>
+              </div>
+              <ul className="experience-points">
+                <li>
+                  Classification and reconstruction of rare cosmic-ray radio signals
+                </li>
+                <li>
+                  Machine-learning-assisted rejection of background events
+                </li>
+              </ul>
+            </article>
+        </div>
+      </section>
+
+      <ContactSection />
+    </main>
+  );
+}
+
+function ResearchPage() {
+  return (
+    <main id="top">
+      <section className="page-hero surface-card" aria-labelledby="research-page-title">
+        <h1 id="research-page-title">Research</h1>
+        <p>
+          Microscopic physics of frustrated and correlated quantum magnetic materials through complex measurements and data-intensive analysis
+        </p>
+      </section>
+      <ResearchCards />
+      <ContactSection />
+    </main>
+  );
+}
+
+function PublicationsPage() {
+  return (
+    <main id="top">
+      <section className="page-hero surface-card" aria-labelledby="publications-page-title">
+        <h1 id="publications-page-title">Publications and Talks</h1>
+        <div className="profile-links" aria-label="Academic profiles">
+          <a className="profile-link" href="https://scholar.google.com/citations?user=IcP_P_sAAAAJ&hl=en" {...externalLinkProps}>
+            <span>Google Scholar</span><Arrow />
+          </a>
+          <a className="profile-link" href="https://orcid.org/0000-0003-2418-4660" {...externalLinkProps}>
+            <span>ORCID</span><Arrow />
+          </a>
+        </div>
+      </section>
+      <section className="section publication-section standalone-publications surface-card" aria-label="Publication list">
+        <h2 className="section-kicker">Journal articles</h2>
+        <div className="publication-content">
+          <PublicationList />
+        </div>
+      </section>
+      <section className="section publication-section standalone-publications surface-card" aria-label="Talks and presentations">
+        <h2 className="section-kicker">Talks / Presentations</h2>
+        <div className="publication-content">
+          <TalksList />
+        </div>
+      </section>
+      <ContactSection />
+    </main>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <span>© {new Date().getFullYear()} Leshan Zhao</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  );
+}
+
+function App() {
+  const currentPage = (document.body.dataset.page ?? "home") as PageId;
+  const page = currentPage === "research"
+    ? <ResearchPage />
+    : currentPage === "publications"
+      ? <PublicationsPage />
+      : <HomePage />;
+
+  return (
+    <>
+      <Header currentPage={currentPage} />
+      {page}
+      <Footer />
     </>
   );
 }
