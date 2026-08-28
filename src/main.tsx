@@ -235,7 +235,10 @@ function HomePage() {
             materials through precision measurements, neutron scattering, and data-intensive analysis.
           </p>
           <div className="hero-actions">
-            <a className="button button-rust" href="/research/">
+            <a className="button button-rust" href="/Leshan_Zhao_CV.pdf" {...externalLinkProps}>
+              View CV <Arrow />
+            </a>
+            <a className="button button-line" href="/research/">
               View research <Arrow />
             </a>
             <a className="button button-line" href="#contact">
