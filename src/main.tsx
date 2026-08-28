@@ -273,7 +273,7 @@ function HomePage() {
             interests include data-intensive analysis such as machine
             learning for inverse problems and analysis tools that connect
             measurements to interpretable physical models. My previous
-            work with the ARIANNA collaboration involved claasification and
+            work with the ARIANNA collaboration involved classification and
             reconstruction for rare cosmic particles.
           </p>
 
